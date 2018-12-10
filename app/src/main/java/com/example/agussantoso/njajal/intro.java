@@ -6,27 +6,34 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class intro extends AppCompatActivity implements View.OnClickListener {
+public class intro extends AppCompatActivity  {
     Button button;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro);
 
-        findAllViewId();
-        button.setOnClickListener(this);
+        Button btn1 =(Button)findViewById(R.id.btnNext);
+
+        Button btn2 =(Button)findViewById(R.id.btnVidio);
+        btn1.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent pindah = new Intent(intro.this,MainActivity.class);
+                startActivity(pindah);
+            }
+        });
+
+        btn2.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent vidio = new Intent(intro.this,MainActivity_Video.class);
+                startActivity(vidio);
+
+            }
+        });
 
     }
 
-    private void findAllViewId() {button=(Button) findViewById(R.id.btnNext);
-    }
-
-    @Override
-    public void onClick(View v) {
-        Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-        Bundle b = new Bundle();
-        intent.putExtras(b);
-        startActivity(intent);
-
-    }
 }

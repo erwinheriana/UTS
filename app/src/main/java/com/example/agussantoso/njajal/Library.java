@@ -29,14 +29,13 @@ public class Library extends AppCompatActivity {
     private static final String FILE_PROVIDER_AUTHORITY = "com.example.agussantoso.fileprovider";
 
     private ImageView mImageView;
-
     private Button mEmojifyButton;
 
     private TextView mTitleTextView;
 
     private String mTempPhotoPath;
 
-    private Bitmap mResultsBitmap;
+    public Bitmap mResultsBitmap;
 
 
     @Override
@@ -46,7 +45,8 @@ public class Library extends AppCompatActivity {
         mImageView = (ImageView) findViewById(R.id.image_view);
         mEmojifyButton = (Button) findViewById(R.id.emojify_button);
 
-        mTitleTextView = (TextView) findViewById(R.id.title_text_view);
+
+
     }
     public void emojifyMe(View view) {
         // Check for the external storage permission
@@ -116,6 +116,7 @@ public class Library extends AppCompatActivity {
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
 
                 // Launch the camera activity
+
                 startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
             }
         }
@@ -138,11 +139,10 @@ public class Library extends AppCompatActivity {
     /**
      * Method for processing the captured image and setting it to the TextView.
      */
-    private void processAndSetImage() {
+    public void processAndSetImage() {
 
         // Toggle Visibility of the views
         mEmojifyButton.setVisibility(View.GONE);
-        mTitleTextView.setVisibility(View.GONE);
 
 
         // Resample the saved image to fit the ImageView
@@ -155,13 +155,5 @@ public class Library extends AppCompatActivity {
         // Set the new bitmap to the ImageView
         mImageView.setImageBitmap(mResultsBitmap);
     }
-
-
-    // TODO (4): Replace OnClick methods with Butterknife annotations for OnClicks
-    /**
-     * OnClick method for the save button.
-     *
-     * @param view The save button.
-     */
 
 }

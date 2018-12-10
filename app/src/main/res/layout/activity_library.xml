@@ -12,22 +12,13 @@
        android:layout_height="wrap_content"
        android:id="@+id/image_view"/>
 
-    <TextView
-        android:id="@+id/title_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/emojify_button"
-        android:text="nama"
-        android:layout_centerHorizontal="true"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
-
     <Button
         android:id="@+id/emojify_button"
+        android:background="@drawable/camera"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:text="camera"
         android:onClick="emojifyMe"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"/>
 
