@@ -24,6 +24,7 @@
                 android:resource="@xml/file_paths" />
         </provider>
         <activity android:name=".intro"
+            android:launchMode="singleTop"
             android:configChanges="keyboardHidden|orientation|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,6 +32,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver android:name=".ExampleAppWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/example_appwidget_info" />
+        </receiver>
 
 
         <activity android:name=".Library" />
@@ -45,5 +55,6 @@
             </intent-filter>
         </service>
     </application>
+
 
 </manifest>
